@@ -45,7 +45,7 @@ coverage.xml
 node_modules/
 
 ################# version control #################
-
+tinker/
 
 #################    IDE files    #################
 .DS_STORE

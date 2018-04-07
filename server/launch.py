@@ -26,15 +26,9 @@ app.config['ASSETS_DEBUG'] = False
 from flask_cors import CORS
 CORS(app)
 
-# construct data object models
-from labpack.records.id import labID
-from jsonmodel.validators import jsonModel
-from labpack.records.settings import load_settings
-api_model = load_settings('models/api.json')
-charlotte = load_settings('../data/users/zPpgsPmGSVculcMmCXZ4FqFW.json')
-george = load_settings('../data/users/Gn57-gGUzJJZC38LU0jYw93I.json')
-telemetry = load_settings('../data/telemetry/Xin_4Dd826qwdDmHjYR5m5Xu.json')
-telemetry_model = jsonModel(load_settings('models/telemetry-post.json'))
+# import data objects
+from labpack.records.time import labDT
+from server.init import sql_tables, telemetry_model, api_model
 
 # import route dependencies
 from server.utils import construct_response
@@ -53,7 +47,9 @@ def users_route():
     request_details = extract_request_details(request)
     app.logger.debug(request_details)
     response_details = construct_response(request_details)
-    user_list = [ charlotte, george ]
+    user_list = []
+    for record in sql_tables['users'].list():
+        user_list.append(record)
     response_details['details'] = user_list
     app.logger.debug(response_details)
     return jsonify(response_details), response_details['code']
@@ -69,7 +65,9 @@ def telemetry_route():
     # handle get telemetry
     if request_details['method'] == 'GET':
         response_details = construct_response(request_details)
-        telemetry_list = [ telemetry ]
+        telemetry_list = []
+        for record in sql_tables['telemetry'].list():
+            telemetry_list.append(record)
         response_details['details'] = telemetry_list
         app.logger.debug(response_details)
         return jsonify(response_details), response_details['code']
@@ -78,7 +76,14 @@ def telemetry_route():
     if request_details['method'] == 'POST':
         response_details = construct_response(request_details, telemetry_model)
         if not response_details['error']:
-            response_details['details'] = { 'id': labID().id24 }
+            telemetry_dt = request_details['json']['dt']
+            telemetry_record = {
+                'date': labDT.fromEpoch(telemetry_dt).zulu()[0:10],
+            }
+            for key, value in request_details['json'].items():
+                telemetry_record[key] = value
+            telemetry_id = sql_tables['telemetry'].create(telemetry_record)
+            response_details['details'] = { 'id': telemetry_id }
         app.logger.debug(response_details)
         return jsonify(response_details), response_details['code']
 

@@ -2,6 +2,7 @@
   "schema": {
     "name": "API for Lyvia Project",
     "documentation": "https://github.com/rj919/lyvia",
+    "base_endpoint": "https://lyvia.herokuapp.com",
     "api_methods": [
       { "endpoint": "/users", "description": "list_all_users", "method": "GET"},
       { "endpoint": "/users/<user_id>", "description": "get_user", "method": "GET"},

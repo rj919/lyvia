@@ -6,7 +6,7 @@
     "name": "Charlotte",
     "age": 65,
     "wards": [{
-      "id": "Gn57-gGUzJJZC38LU0jYw93I",
+      "user_id": "Gn57-gGUzJJZC38LU0jYw93I",
       "relationship": "husband" 
     }]
   }

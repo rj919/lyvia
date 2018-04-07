@@ -27,11 +27,14 @@ from flask_cors import CORS
 CORS(app)
 
 # construct data object models
+from labpack.records.id import labID
+from jsonmodel.validators import jsonModel
 from labpack.records.settings import load_settings
 api_model = load_settings('models/api.json')
 charlotte = load_settings('../data/users/zPpgsPmGSVculcMmCXZ4FqFW.json')
 george = load_settings('../data/users/Gn57-gGUzJJZC38LU0jYw93I.json')
 telemetry = load_settings('../data/telemetry/Xin_4Dd826qwdDmHjYR5m5Xu.json')
+telemetry_model = jsonModel(load_settings('models/telemetry-post.json'))
 
 # import route dependencies
 from server.utils import construct_response
@@ -63,6 +66,7 @@ def telemetry_route():
     request_details = extract_request_details(request)
     app.logger.debug(request_details)
     
+    # handle get telemetry
     if request_details['method'] == 'GET':
         response_details = construct_response(request_details)
         telemetry_list = [ telemetry ]
@@ -70,9 +74,14 @@ def telemetry_route():
         app.logger.debug(response_details)
         return jsonify(response_details), response_details['code']
     
+    # handle post telemetry
     if request_details['method'] == 'POST':
-        response_details = construct_response(request_details)
-    
+        response_details = construct_response(request_details, telemetry_model)
+        if not response_details['error']:
+            response_details['details'] = { 'id': labID().id24 }
+        app.logger.debug(response_details)
+        return jsonify(response_details), response_details['code']
+
 # construct the catchall for URLs which do not exist
 @app.errorhandler(404)
 def page_not_found(error):

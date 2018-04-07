@@ -1,0 +1,544 @@
+/* LAB STYLE EXTENSION */
+
+/* BOOTSTRAP DOCUMENTATION */
+/* https://getbootstrap.com/css/ */
+
+/* Default Style Elements */
+
+body {
+
+  /* layout */
+    margin-left: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    height: 100%;
+    background-color: #ffffff;
+
+  /* typography*/
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.2;
+    font-size: 16px; /* For browsers that do not support rem unit */
+    font-size: 1.6rem;
+    font-weight: 100;
+    color: #333333;
+
+  /* scrolling */
+    overflow-x: hidden;
+
+}
+a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+}
+::-webkit-scrollbar {
+    width: .5rem;  /* For vertical scrollbars */
+    height: .5rem; /* For horizontal scrollbars */
+}
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+/* Classes for Page Layout Location Elements */
+
+.header-container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%; /* For browsers that do not support vw unit */
+    width: 100vw;
+    height: auto;
+}
+.content-container {
+    position: absolute;
+    top: 62px;
+    left: 0px;
+    width: 100%; /* For browsers that do not support vw unit */
+    width: 100vw;
+    height: auto;
+}
+.content-container-fill {
+    position: absolute;
+    top: 62px;
+    left: 0px;
+    width: 100%; /* For browsers that do not support vw unit */
+    width: 100vw;
+    overflow: hidden;
+    height: calc(100% - 62px)!important;
+}
+.footer-container {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%; /* For browsers that do not support vw unit */
+    width: 100vw;
+    height: auto;
+}
+.page-side-bar-left {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: auto;
+    min-width: 240px;
+    width: 25%; /* For browsers that do not support vw unit */
+    width: 25vw;
+    height: auto;
+}
+.page-side-bar-right {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: auto;
+    min-width: 240px;
+    width: 25%; /* For browsers that do not support vw unit */
+    width: 25vw;
+    height: auto;
+}
+.page-middle-center {
+    position: absolute;
+    top: 50%; /* For browsers that do not support vh unit */
+    top: 50vh;
+    left: 50%; /* For browsers that do not support vw unit */
+    left: 50vw;
+    right: auto;
+    transform: translate(-50%, -50%);
+    height: auto;
+    min-height: 160px;
+    width: auto;
+    min-width: 420px;
+}
+.page-overlay-90 {
+    position: absolute;
+    top: 5%; /* For browsers that do not support vh unit */
+    top: 5vh;
+    left: 5%; /* For browsers that do not support vw unit */
+    left: 5vw;
+    right: auto;
+    height: 90%; /* For browsers that do not support vh unit */
+    height: 90vh;
+    width: 90%; /* For browsers that do not support vw unit */
+    width: 90vw;
+}
+.page-overlay-100 {
+    position: absolute;
+    top: 0px;
+    height: 100%; /* For browsers that do NOT support vh unit */
+    height: 100vh;
+    width: 100%; /* For browsers that do not support vw unit */
+    width: 100vw;
+}
+.page-chat-window {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 50%; /* For browsers that do NOT support vh unit */
+    height: 50vh;
+    width: 300px;
+}
+.page-status-message {
+    position: absolute;
+    max-width: 200px;
+    z-index: 1050;
+}
+
+/* Classes for Page Section Elements */
+
+.navbar {
+    min-height: 5rem;
+    margin-bottom: 1rem;
+}
+.navbar-border {
+    border-bottom: 1px solid #e8e8e8;
+    /*
+    box-shadow: 0 .2rem .5rem rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 .2rem .5rem rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 .2rem .5rem rgba(0, 0, 0, 0.5);
+    */
+}
+.navbar-fixed-top {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.navbar-title-36 {
+    display: flex;
+    white-space: nowrap;
+    padding: 0.7rem 0 0.7rem 0;
+    font-size: 3.6rem;
+    line-height: 3.6rem;
+}
+.navbar-title-24 {
+    display: flex;
+    white-space: nowrap;
+    padding: 1.3rem 0 1.3rem 0;
+    font-size: 2.4rem;
+    line-height: 2.4rem;
+}
+.navbar-title-16 {
+    display: flex;
+    white-space: nowrap;
+    padding: 1.7rem 0 1.7rem 0;
+    font-size: 1.6rem;
+    font-weight: 100;
+    line-height: 1.6rem;
+}
+.navbar-center {
+    align-items: center;
+    justify-content: center;
+}
+.navbar-end {
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.navbar-start {
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.section-row {
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid #e8e8e8;
+}
+.section-last {
+    padding-top: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+.dialog-backdrop {
+    border: 0px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    color: inherit;
+    margin: 0px;
+    padding: 0px;
+    background-color: #000000;
+    opacity: 0.05;
+    border: none;
+    z-index: 1039;
+}
+.dialog-box {
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    color: inherit;
+    margin: 0px;
+    padding: 0px;
+    background-color: #ffffff;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+}
+.dialog-full-page {
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+.dialog-side-bar-left {
+    border-top: none;
+    border-left: none;
+}
+.dialog-side-bar-right {
+    border-top: none;
+    border-right: none;
+}
+.dialog-chat-window {
+    border-bottom: none;
+}
+.dialog-tooltip {
+    box-shadow: 0 .2rem .5rem rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 .2rem .5rem rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 .2rem .5rem rgba(0, 0, 0, 0.5);
+}
+
+
+/* Classes for Form Elements */
+
+.form-line {
+    padding-bottom: 1.2rem;
+}
+.form-text {
+    /*
+    height: 2rem;
+    line-height: 1.2;
+    font-size: 1.6rem;
+    */
+    height: 2.4rem;
+    line-height: 1;
+    font-size: 2rem;
+    font-weight: 100;
+}
+.form-button {
+    text-align: center;
+    border: 0.2rem;
+    border-radius: 0rem;
+    -webkit-border-radius: 0rem;
+    cursor: pointer;
+}
+.form-control, .form-control:focus {
+    /*
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    */
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0px;
+    padding-bottom: 0px;
+    box-shadow: none;
+    border: 0px;
+    border-bottom: 1px solid #e8e8e8;
+    border-radius: 0px;
+    background-color: transparent;
+}
+.form-control-value {
+}
+.form-control-inline {
+    display: flex;
+}
+.form-control-auto, .form-control-auto:focus {
+    width: auto;
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+.form-control-fill, .form-control-fill:focus {
+    flex-grow: 1;
+}
+textarea {
+    min-height: 8rem;
+}
+.form-control-borderless, .form-control-borderless:focus {
+    border-bottom: none;
+}
+input.form-control-value::-webkit-input-placeholder,
+input.form-control-value:focus::-webkit-input-placeholder { /* Chrome, Opera */
+    color: inherit;
+    opacity: 1;
+}
+input.form-control-value:-moz-placeholder,
+input.form-control-value:focus:-moz-placeholder { /* Firefox 18 and older */
+    color: inherit;
+    opacity: 1;
+}
+input.form-control-value::-moz-placeholder,
+input.form-control-value:focus::-moz-placeholder {  /* Firefox 19 and newer */
+   color: inherit;
+   opacity: 1;
+}
+input.form-control-value:-ms-input-placeholder,
+input.form-control-value:focus:-ms-input-placeholder {
+   color: inherit;
+   opacity: 1;
+}
+
+
+/* Classes for Chat Elements */
+
+
+/* Classes for Justification */
+
+.height-content {
+    height: calc(100% - 62px)!important;
+}
+.height-100 {
+    height: 100%;
+}
+.vertical-center {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.vertical-center-40 {
+    position: relative;
+    top: 40%;
+    transform: translateY(-40%);
+}
+.float-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+.float-middle {
+    display: block;
+    vertical-align: middle;
+}
+.float-top {
+    display: inline-block;
+    vertical-align: top;
+}
+.float-right {
+    float: right;
+    text-align: right;
+}
+.float-right-inline{
+    display: inline-block;
+    float: right;
+    text-align: right;
+}
+.float-left {
+    display: inline-block;
+    float: left;
+    text-align: left;
+}
+.float-bottom {
+    display: inline-block;
+    vertical-align: bottom;
+}
+.vertical-bottom-50 {
+    min-height: 50%;  /* For browsers that do NOT support vh unit */
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+}
+.vertical-bottom-100 {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+.div-fill {
+    height: 100%;
+    width: 100%;
+}
+.line-height-1 {
+    line-height: 1rem;
+}
+
+
+/* Classes for Icon Sizes & Colors */
+
+.font-mega { font-size: 9.6rem; }
+.font-xl { font-size: 6.4rem; }
+.font-lg { font-size: 4.8rem; }
+.font-md { font-size: 3.6rem; }
+.font-sm { font-size: 2.4rem; }
+.font-xs { font-size: 1.6rem; }
+.font-mini { font-size: 1.2rem; }
+.font-micro { font-size: 1.0rem; }
+
+.font-success { color: #00ff00; }
+.font-error { color: #a94442; }
+.bold { font-weight: bold; }
+.italic { font-style: italic; }
+.oblique { font-style: oblique; }
+.small-caps { font-variant: small-caps; }
+
+.icon-mega { height: 96px; width: auto; }
+.icon-xl { height: 64px; width: auto; }
+.icon-lg { height: 48px; width: auto; }
+.icon-md { height: 36px; width: auto; }
+.icon-sm { height: 2.4rem; width: 2.4rem; }
+.icon-xs { height: 1.6rem; width: 1.6rem; line-height: 1; }
+.icon-mini { height: 12px; width: auto; }
+
+.icon-overlay { position: absolute; }
+.icon-success { color: #00ff00; }
+.icon-error { color: #a94442; }
+
+@-webkit-keyframes glow-effect {
+    0% { color: #33ff33; text-shadow: 0 0 0rem #33ff33; }
+    40% { color: #11ff00; text-shadow: 0 0 0.3rem #11ff11; }
+    50% { color: #00ff00; text-shadow: 0 0 0.4rem #00ff00; }
+    60% { color: #11ff00; text-shadow: 0 0 0.3rem #11ff11; }
+    100% { color: #33ff33; text-shadow: 0 0 0rem #33ff33; }
+}
+
+@-moz-keyframes glow-effect {
+    0% { color: #33ff33; text-shadow: 0 0 0rem #33ff33; }
+    40% { color: #11ff00; text-shadow: 0 0 0.3rem #11ff11; }
+    50% { color: #00ff00; text-shadow: 0 0 0.4rem #00ff00; }
+    60% { color: #11ff00; text-shadow: 0 0 0.3rem #11ff11; }
+    100% { color: #33ff33; text-shadow: 0 0 0rem #33ff33; }
+}
+
+@-o-keyframes glow-effect {
+    0% { color: #33ff33; text-shadow: 0 0 0rem #33ff33; }
+    40% { color: #11ff00; text-shadow: 0 0 0.3rem #11ff11; }
+    50% { color: #00ff00; text-shadow: 0 0 0.4rem #00ff00; }
+    60% { color: #11ff00; text-shadow: 0 0 0.3rem #11ff11; }
+    100% { color: #33ff33; text-shadow: 0 0 0rem #33ff33; }
+}
+
+@keyframes glow-effect {
+    0% { color: #33ff33; text-shadow: 0 0 0rem #33ff33; }
+    40% { color: #11ff00; text-shadow: 0 0 0.3rem #11ff11; }
+    50% { color: #00ff00; text-shadow: 0 0 0.4rem #00ff00; }
+    60% { color: #11ff00; text-shadow: 0 0 0.3rem #11ff11; }
+    100% { color: #33ff33; text-shadow: 0 0 0rem #33ff33; }
+}
+
+.icon-glow {
+    -webkit-animation: glow-effect 1500ms infinite;
+    -moz-animation: glow-effect 1500ms infinite;
+    -o-animation: glow-effect 1500ms infinite;
+    animation: glow-effect 1500ms infinite;
+}
+
+
+/* Classes for Margins & Padding */
+
+.padding-left-0 { padding-left: 0px; }
+.padding-left-5 { padding-left: 5px; }
+.padding-left-10 { padding-left: 10px; }
+.padding-left-15 { padding-left: 15px; }
+.padding-left-20 { padding-left: 20px; }
+
+.padding-right-0 { padding-right: 0px; }
+.padding-right-5 { padding-right: 5px; }
+.padding-right-10 { padding-right: 10px; }
+.padding-right-15 { padding-right: 15px; }
+.padding-right-20 { padding-right: 20px; }
+
+.padding-horizontal-0 { padding-left: 0px; padding-right: 0px; }
+.padding-horizontal-5 { padding-left: 5px; padding-right: 5px; }
+.padding-horizontal-10 { padding-left: 10px; padding-right: 10px; }
+.padding-horizontal-15 { padding-left: 15px; padding-right: 15px; }
+.padding-horizontal-20 { padding-left: 20px; padding-right: 20px; }
+
+.padding-vertical-0 { padding-top: 0px; padding-bottom: 0px; }
+.padding-vertical-5 { padding-top: 5px; padding-bottom: 5px; }
+.padding-vertical-10 { padding-top: 10px; padding-bottom: 10px; }
+.padding-vertical-15 { padding-top: 15px; padding-bottom: 15px; }
+.padding-vertical-20 { padding-top: 20px; padding-bottom: 20px; }
+
+.margin-left-0 { margin-left: 0px; }
+.margin-left-5 { margin-left: 5px; }
+.margin-left-10 { margin-left: 10px; }
+.margin-left-15 { margin-left: 15px; }
+.margin-left-20 { margin-left: 20px; }
+
+.margin-right-0 { margin-right: 0px; }
+.margin-right-5 { margin-right: 5px; }
+.margin-right-10 { margin-right: 10px; }
+.margin-right-15 { margin-right: 15px; }
+.margin-right-20 { margin-right: 20px; }
+
+.margin-horizontal-0 { margin-left: 0px; margin-right: 0px; }
+.margin-horizontal-5 { margin-left: 5px; margin-right: 5px; }
+.margin-horizontal-10 { margin-left: 10px; margin-right: 10px; }
+.margin-horizontal-15 { margin-left: 15px; margin-right: 15px; }
+.margin-horizontal-20 { margin-left: 20px; margin-right: 20px; }
+
+.margin-bottom-0 { margin-bottom: 0px; }
+.margin-bottom-5 { margin-bottom: 5px; }
+.margin-bottom-10 { margin-bottom: 10px; }
+.margin-bottom-15 { margin-bottom: 15px; }
+.margin-bottom-20 { margin-bottom: 20px; }
+
+.margin-vertical-0 { margin-bottom: 0px; margin-top: 0px; }
+.margin-vertical-2 { margin-bottom: 3px; margin-top: 2px; }
+.margin-vertical-5 { margin-bottom: 5px; margin-top: 5px; }
+.margin-vertical-10 { margin-bottom: 10px; margin-top: 10px; }
+.margin-vertical-15 { margin-bottom: 15px; margin-top: 15px; }
+.margin-vertical-20 { margin-bottom: 20px; margin-top: 20px; }
+
+
+/* Classes for State Management */
+.id-verified-visible {}
+.id-verified-border {}

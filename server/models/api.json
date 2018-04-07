@@ -6,9 +6,48 @@
     "api_methods": [
       { "endpoint": "/users", "description": "list_all_users", "method": "GET"},
       { "endpoint": "/users/<user_id>", "description": "get_user", "method": "GET"},
-      { "endpoint": "/telemetry", "description": "get_all_telemetry", "method": "GET"},
-      { "endpoint": "/telemetry", "description": "add_telemetry", "method": "POST"},
-      { "endpoint": "/telemetry/<telemetry_id>", "description": "get_telemetry", "method": "GET"}
+      { "endpoint": "/telemetry", "description": "get_all_telemetry", "method": "GET",
+        "response": {
+          "details": [
+            {
+              "id": "Xin_4Dd826qwdDmHjYR5m5Xu",
+              "dt": 1523124562.503534,
+              "user_id": "zPpgsPmGSVculcMmCXZ4FqFW",
+              "date": "20180407",
+              "x": 155,
+              "y": 1,
+              "z": 255
+            }
+          ]
+        }
+      },
+      { "endpoint": "/telemetry", "description": "add_telemetry", "method": "POST", 
+        "body": { 
+          "user_id": "zPpgsPmGSVculcMmCXZ4FqFW",
+          "dt": 1523124562.503534,
+          "x": 155,
+          "y": 1,
+          "z": 255
+        },
+        "response": {
+          "details": {
+            "id": "Xin_4Dd826qwdDmHjYR5m5Xu"
+          }
+        }
+      },
+      { "endpoint": "/telemetry/<telemetry_id>", "description": "get_telemetry", "method": "GET",
+        "response": {
+          "details": {
+            "id": "Xin_4Dd826qwdDmHjYR5m5Xu",
+            "dt": 1523124562.503534,
+            "user_id": "zPpgsPmGSVculcMmCXZ4FqFW",
+            "date": "20180407",
+            "x": 155,
+            "y": 1,
+            "z": 255
+          }
+        }
+      }
     ]
   }
 }

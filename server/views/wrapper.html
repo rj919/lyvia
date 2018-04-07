@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/lab.css') }}" type="text/css">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    {% block link %}{% endblock %}
+    <meta charset="UTF-8">
+    <meta name="lab-context" content="placeholder">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    {% block meta %}{% endblock %}
+    <title>{% block title %}Lyvia : Caring for your Parents{% endblock %}</title>
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+        {% block content %}
+        {% endblock %}
+    {% endblock %}
+
+    <!-- Javascript Block -->
+    {% block javascript %}{% endblock %}
+
+  </body>
+</html>

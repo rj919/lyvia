@@ -1,0 +1,68 @@
+{
+  "api_methods": [
+    {
+      "description": "list_all_users", 
+      "endpoint": "/users", 
+      "method": "GET"
+    }, 
+    {
+      "description": "get_user", 
+      "endpoint": "/users/<user_id>", 
+      "method": "GET"
+    }, 
+    {
+      "description": "get_all_telemetry", 
+      "endpoint": "/telemetry", 
+      "method": "GET", 
+      "response": {
+        "details": [
+          {
+            "date": "20180407", 
+            "dt": 1523124562.503534, 
+            "id": "Xin_4Dd826qwdDmHjYR5m5Xu", 
+            "user_id": "zPpgsPmGSVculcMmCXZ4FqFW", 
+            "x": 155, 
+            "y": 1, 
+            "z": 255
+          }
+        ]
+      }
+    }, 
+    {
+      "body": {
+        "dt": 1523124562.503534, 
+        "user_id": "zPpgsPmGSVculcMmCXZ4FqFW", 
+        "x": 155, 
+        "y": 1, 
+        "z": 255
+      }, 
+      "description": "add_telemetry", 
+      "endpoint": "/telemetry", 
+      "method": "POST", 
+      "response": {
+        "details": {
+          "id": "Xin_4Dd826qwdDmHjYR5m5Xu"
+        }
+      }
+    }, 
+    {
+      "description": "get_telemetry", 
+      "endpoint": "/telemetry/<telemetry_id>", 
+      "method": "GET", 
+      "response": {
+        "details": {
+          "date": "20180407", 
+          "dt": 1523124562.503534, 
+          "id": "Xin_4Dd826qwdDmHjYR5m5Xu", 
+          "user_id": "zPpgsPmGSVculcMmCXZ4FqFW", 
+          "x": 155, 
+          "y": 1, 
+          "z": 255
+        }
+      }
+    }
+  ], 
+  "base_endpoint": "https://lyvia.herokuapp.com", 
+  "documentation": "https://github.com/rj919/lyvia", 
+  "name": "API for Lyvia Project"
+}

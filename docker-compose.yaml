@@ -1,0 +1,23 @@
+# docker compose configuration file
+# https://docs.docker.com/compose/compose-file/
+version: '3.2'
+services:
+  lyvia: # name for container alias and service in lab registry
+    image: lyvia # replace with preferred pre-built image name
+    build: # remove if using pre-built image
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    environment:
+      PORT: '5000'
+    volumes: # replace with volumes required by service
+      - {'type': 'bind', 'source': './cred', 'target': '/opt/cred'}
+      - {'type': 'bind', 'source': './data', 'target': '/opt/data'}
+      - {'type': 'bind', 'source': './server', 'target': '/opt/server'}
+    command: gunicorn -k gevent -w 1 --chdir /opt/server launch:flask_app -b 0.0.0.0:5000 # eg.
+    networks: # select from 'none', 'host', 'bridge' and '<custom network>'
+      - bridge
+    proxies: # optional map of subdomains to ports for deployment to reverse proxy/load balancer
+      lyvia.collectiveacuity.com: '5000'
+    

@@ -1,0 +1,15 @@
+#################  .dockerignore  #################
+
+#################    IDE files    #################
+.DS_STORE
+.netbeans
+nbproject
+.idea
+.node_history
+__pycache__
+
+################# version control #################
+.gitignore
+.git
+.hg
+.hgignore

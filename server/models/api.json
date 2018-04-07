@@ -4,10 +4,34 @@
     "documentation": "https://github.com/rj919/lyvia",
     "base_endpoint": "https://lyvia.herokuapp.com",
     "api_methods": [
-      { "endpoint": "/users", "description": "list_all_users", "method": "GET"},
-      { "endpoint": "/users/<user_id>", "description": "get_user", "method": "GET"},
+      { "endpoint": "/users", 
+        "description": "list_all_users", 
+        "method": "GET",
+        "response": {
+          "code": 200, 
+          "details": [
+            {
+              "age": 65, 
+              "dt": 1523124542.949041, 
+              "id": "zPpgsPmGSVculcMmCXZ4FqFW", 
+              "name": "Charlotte", 
+              "photo": "https://lyvia.herokuapp.com/public/images/charlotte.jpg", 
+              "wards": [
+                {
+                  "relationship": "husband", 
+                  "user_id": "Gn57-gGUzJJZC38LU0jYw93I"
+                }
+              ]
+            }
+          ], 
+          "dt": 1523134110.914064, 
+          "error": "", 
+          "id": "upW95uZGFaUmE1LLh2vM8v8QcSw9ebCN5f3d"
+        }
+      },
       { "endpoint": "/telemetry", "description": "get_all_telemetry", "method": "GET",
         "response": {
+          "code": 200,
           "details": [
             {
               "id": "Xin_4Dd826qwdDmHjYR5m5Xu",
@@ -18,7 +42,10 @@
               "y": 1,
               "z": 255
             }
-          ]
+          ],
+          "dt": 1523133675.278854, 
+          "error": "", 
+          "id": "F4vgOXKuV739OgzUaBLEv7KvZ1p007jbQaby"
         }
       },
       { "endpoint": "/telemetry", "description": "add_telemetry", "method": "POST", 
@@ -32,20 +59,10 @@
         "response": {
           "details": {
             "id": "Xin_4Dd826qwdDmHjYR5m5Xu"
-          }
-        }
-      },
-      { "endpoint": "/telemetry/<telemetry_id>", "description": "get_telemetry", "method": "GET",
-        "response": {
-          "details": {
-            "id": "Xin_4Dd826qwdDmHjYR5m5Xu",
-            "dt": 1523124562.503534,
-            "user_id": "zPpgsPmGSVculcMmCXZ4FqFW",
-            "date": "20180407",
-            "x": 155,
-            "y": 1,
-            "z": 255
-          }
+          },
+          "dt": 1523133724.129696, 
+          "error": "", 
+          "id": "8ZSs_--VUW4qeD-mBfZZmpYnAPa9PKUWj6ua"
         }
       }
     ]

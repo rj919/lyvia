@@ -1,10 +1,13 @@
 {
   "schema": {
-    "id": "YUnn9bWPuJCM2m9IRO81ndOi",
-    "dt": "1523124542.949041",
-    "patient_id": "zPpgsPmGSVculcMmCXZ4FqFW",
-    "patient_relationship": "mother",
-    "patient_photo": "https://lyvia.herokuapp.com/public/eleanor.png",
-    "patient_name": "Eleanor"
+    "id": "zPpgsPmGSVculcMmCXZ4FqFW",
+    "dt": 1523124542.949041,
+    "photo": "https://lyvia.herokuapp.com/public/images/charlotte.jpg",
+    "name": "Charlotte",
+    "age": 65,
+    "wards": [{
+      "id": "Gn57-gGUzJJZC38LU0jYw93I",
+      "relationship": "husband" 
+    }]
   }
 }

@@ -1,0 +1,13 @@
+{
+  "schema": {
+    "name": "API for Lyvia Project",
+    "documentation": "https://github.com/rj919/lyvia",
+    "api_methods": [
+      { "endpoint": "/users", "description": "list_all_users", "method": "GET"},
+      { "endpoint": "/users/<user_id>", "description": "get_user", "method": "GET"},
+      { "endpoint": "/telemetry", "description": "get_all_telemetry", "method": "GET"},
+      { "endpoint": "/telemetry", "description": "add_telemetry", "method": "POST"},
+      { "endpoint": "/telemetry/<telemetry_id>", "description": "get_telemetry", "method": "GET"}
+    ]
+  }
+}

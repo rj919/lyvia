@@ -1,0 +1,63 @@
+.hamburger {
+    float:left;
+    height:50px;
+    width:50px;
+    border-style: solid;
+    border-width: 2px;
+    background-color: white;
+  
+    
+}
+.profile {
+    height:60px;
+    width:60px;
+ 
+}
+ 
+.name {
+    float:left;
+}
+ 
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+ 
+.month {
+    width: 100%;
+    background: #1abc9c;
+    text-align: center;
+}
+ 
+.month ul {
+    margin: 0;
+    padding: 0;
+}
+ 
+.month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+   
+}
+ 
+.days {
+    padding: 5px 0;
+    background: #eee;
+    margin: 0;
+}
+ 
+.chart {
+    background: #1abc9c;
+    height: 100px;
+    width: 100px;
+}
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 14.2%;
+    text-align: center;  
+    padding:0px 0px 150px 0px;
+    margin: -3.5px -3px;
+    font-size:12px;
+     border-style: solid;
+    border-width: 1px;
+}

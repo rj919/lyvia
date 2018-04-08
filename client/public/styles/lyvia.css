@@ -56,3 +56,16 @@ body {font-family: Verdana, sans-serif;}
      border-style: solid;
     border-width: 1px;
 }
+
+.alert {
+    display: inline-block;
+    width: 14.2%;
+    text-align: center;
+    padding:0px 0px 150px 0px;
+    margin: -3.5px -3px;
+    font-size:12px;
+     border-style: solid;
+    border-width: 1px;
+    background-color:red;
+
+}

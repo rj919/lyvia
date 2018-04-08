@@ -1,0 +1,18 @@
+{% extends "emails/wrapper.html" %}
+{% block body %}
+<table style="width:600px;margin-left:auto;margin-right:auto;padding-left:20px;padding-right:20px;padding-bottom:20px;color:#333332;line-height:1.4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Ubuntu','Open Sans','Helvetica Neue',sans-serif">
+    <tbody>
+        <tr><td>
+            <p style="margin-top:0;margin-bottom:20px">Update:</p>
+            <p style="margin-top:0;margin-bottom:20px">Lyvia has noticed a series of nights of sleep disruptions with {{ user_name }}. This behavior could be normal, or it could be a sign of a shift in mental state. To view the sleep history for {{ user_name }}, you can click:</p>
+            <p style="margin-top:0;margin-bottom:20px"><a href="{{ base_url }}" style="color:#337ab7;text-decoration:none;display:inline-block;height:38px;line-height:38px;padding-top:0;padding-right:16px;padding-bottom:0;padding-left:16px;outline:0;background-color:#ffffff;font-size:14px;font-style:normal;font-weight:400;text-align:center;white-space:nowrap;border:.1em solid #337ab7;border-radius:.2em;cursor:pointer;" target="_blank">View History</a></p>
+            <p><small>Or use this link:</small></p>
+            <p style="margin-top:0;margin-bottom:20px"><a href="{{ base_url }}" style="color:#333332" target="_blank">{{ base_url }}</a></p>
+        </td></tr>
+        <tr><td>
+            <p style="margin-top:0;margin-bottom:20px">Our Advice:</p>
+            <p style="margin-top:0;margin-bottom:20px">Check in on {{ user_name }} as soon as you get a chance and find out more about the recent sleeping behavior. If you have additional concerns, contact {{ user_name }}'s doctor.</p>
+        </td></tr>
+    </tbody>
+</table>
+{% endblock %}

@@ -48,3 +48,49 @@ def construct_response(request_details, request_model=None, endpoint_list=None, 
                 response_details['code'] = status_details['code']
 
     return response_details
+
+def send_email(email_client, user_email, user_name):
+    
+# define reference links
+    html_template = 'emails/alert.html'
+
+# define email kwargs
+    html_kwargs = {
+        'base_url': 'http://localhost:5001',
+        'application_logo': 'https://lyvia.herokuapp.com/public/images/logos/lab-logo.png',
+        'application_name': 'Lyvia',
+        'application_address': 'One Broadway, 5th Floor, Cambridge, MA 02142',
+        'user_name': user_name
+    }
+
+# construct email html
+    from flask import render_template
+    email_html = render_template(html_template, **html_kwargs)
+
+# send email
+    email_subject = 'Sleep Disruptions Detected for %s' % user_name
+    email_kwargs = {
+        'recipient_list': [ user_email ], 
+        'sender_email': 'lyvia@collectiveacuity.com',
+        'sender_name': 'Lyvia',
+        'email_subject': email_subject,
+        'content_html': email_html
+    }
+    email_client.send_email(**email_kwargs)
+
+if __name__ == '__main__':
+    
+# construct flask context
+    import json
+    from flask import Flask
+    flask_app = Flask(import_name=__name__, static_folder='public', template_folder='views')
+    request_kwargs = {
+        'method': 'GET'
+    }
+
+# construct email client
+    with flask_app.test_request_context('/', **request_kwargs) as ctx:
+        from server.init import email_client
+        user_name = 'George'
+        user_email = 'support@collectiveacuity.com'
+        send_email(email_client, user_email, user_name)

@@ -5,6 +5,7 @@
     "photo": "https://lyvia.herokuapp.com/public/images/charlotte.jpg",
     "name": "Charlotte",
     "age": 65,
+    "email": "support@collectiveacuity.com",
     "wards": [{
       "user_id": "Gn57-gGUzJJZC38LU0jYw93I",
       "relationship": "husband" 

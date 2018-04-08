@@ -7,7 +7,7 @@ import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 # initialize app
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, Response
 flask_kwargs = {
     'import_name': __name__,
     'static_folder': 'public',
@@ -16,7 +16,6 @@ flask_kwargs = {
 app = Flask(**flask_kwargs)
 
 # initialize logging and debugging
-import sys
 import logging
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.DEBUG)
@@ -28,9 +27,10 @@ CORS(app)
 
 # import data objects
 from labpack.records.time import labDT
-from server.init import sql_tables, telemetry_model, api_model
+from server.init import sql_tables, telemetry_model, api_model, email_client
 
 # import route dependencies
+import json
 from server.utils import construct_response
 from labpack.parsing.flask import extract_request_details
 
@@ -61,6 +61,7 @@ def telemetry_route():
     # ingest request
     request_details = extract_request_details(request)
     app.logger.debug(request_details)
+    call_on_close = None
     
     # handle get telemetry
     if request_details['method'] == 'GET':
@@ -71,7 +72,7 @@ def telemetry_route():
         response_details['details'] = telemetry_list
         app.logger.debug(response_details)
         return jsonify(response_details), response_details['code']
-    
+
     # handle post telemetry
     if request_details['method'] == 'POST':
         response_details = construct_response(request_details, telemetry_model)
@@ -84,8 +85,45 @@ def telemetry_route():
                 telemetry_record[key] = value
             telemetry_id = sql_tables['telemetry'].create(telemetry_record)
             response_details['details'] = { 'id': telemetry_id }
-        app.logger.debug(response_details)
-        return jsonify(response_details), response_details['code']
+
+            # test for consistent anomalies
+            if telemetry_record['anomalous']:
+                user_id = telemetry_record['user_id']
+                query_criteria = { 'user_id': user_id }
+                sort_criteria = [ { '.dt': 'descend' } ]
+                count = 0
+                for record in sql_tables['telemetry'].list(query_criteria, sort_criteria):
+                    if not record['anomalous']:
+                        break
+                    count += 1
+                    if count > 2:
+                        # send alert
+                        from server.utils import send_email
+                        def alert_user():
+                            user_email = ''
+                            user_name = ''
+                            for user in sql_tables['users'].list({'user_id': user_id}):
+                                user_email = user['email']
+                                user_name = user['name']
+                                break
+                            send_email(email_client, user_email, user_name)
+                        call_on_close = alert_user
+
+        # compose response
+        if call_on_close:
+            response_kwargs = {
+                'response': json.dumps(response_details),
+                'status': response_details['code'],
+                'mimetype': 'application/json'
+            }
+            response_object = Response(**response_kwargs)
+            response_object.call_on_close(call_on_close)
+            app.logger.debug(response_details)
+            return response_object
+
+        else:
+            app.logger.debug(response_details)
+            return jsonify(response_details), response_details['code']
 
 # construct the catchall for URLs which do not exist
 @app.errorhandler(404)

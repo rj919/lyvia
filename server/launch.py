@@ -66,9 +66,23 @@ def telemetry_route():
     # handle get telemetry
     if request_details['method'] == 'GET':
         response_details = construct_response(request_details)
+        user_id = request_details['params'].get('user')
+        start_date = request_details['params'].get('start')
+        end_date = request_details['params'].get('end')
         telemetry_list = []
-        for record in sql_tables['telemetry'].list():
-            telemetry_list.append(record)
+        if user_id and start_date and end_date:
+            query_criteria = {
+                '.user_id': { 'equal_to': user_id },
+                '.date': {
+                    'min_value': start_date,
+                    'max_value': end_date
+                }
+            }
+            for record in sql_tables['telemetry'].list(query_criteria):
+                telemetry_list.append(record)
+        else:
+            for record in sql_tables['telemetry'].list():
+                telemetry_list.append(record)
         response_details['details'] = telemetry_list
         app.logger.debug(response_details)
         return jsonify(response_details), response_details['code']

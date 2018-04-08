@@ -14,7 +14,8 @@
               "age": 65, 
               "dt": 1523124542.949041, 
               "id": "zPpgsPmGSVculcMmCXZ4FqFW", 
-              "name": "Charlotte", 
+              "name": "Charlotte",
+              "email": "support@collectiveacuity.com",
               "photo": "https://lyvia.herokuapp.com/public/images/charlotte.jpg", 
               "wards": [
                 {
@@ -38,6 +39,7 @@
               "dt": 1523124562.503534,
               "user_id": "zPpgsPmGSVculcMmCXZ4FqFW",
               "date": "2018-04-07",
+              "anomalous": false,
               "x": 155,
               "y": 1,
               "z": 255
@@ -52,6 +54,7 @@
         "body": { 
           "user_id": "zPpgsPmGSVculcMmCXZ4FqFW",
           "dt": 1523124562.503534,
+          "anomalous": true,
           "x": 155,
           "y": 1,
           "z": 255

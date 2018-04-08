@@ -91,6 +91,6 @@ if __name__ == '__main__':
 # construct email client
     with flask_app.test_request_context('/', **request_kwargs) as ctx:
         from server.init import email_client
-        user_name = 'George'
+        user_name = 'Charlotte'
         user_email = 'support@collectiveacuity.com'
         send_email(email_client, user_email, user_name)

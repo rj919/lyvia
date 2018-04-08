@@ -119,7 +119,9 @@ class TestModelTools(unittest.TestCase):
 if __name__ == '__main__':
     random_audio_file( test_files, 120, "../../test/120seconds.wav")
 
-    # Forty files, approx. 7 hours total:
-    for i in range(0,39):
-        random_audio_file( test_files, 540, "../../test/540seconds" + str(i) + ".wav")
+    # A hundred files, sampled over 7 hours total:
+    for i in range(0,40):
+        random_audio_file( test_files, 10, "../../training/10seconds" + str(i) + ".wav")
+        random_audio_file(test_files, 10, "../../validation/10seconds" + str(i) + ".wav")
+
     unittest.main()

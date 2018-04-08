@@ -29,3 +29,12 @@ CORS(app)
 @app.route('/')
 def landing_page():
     return render_template('dashboard.html'), 200
+
+# initialize test wsgi localhost server with default memory job store
+if __name__ == '__main__':
+    from gevent.pywsgi import WSGIServer
+    http_server = WSGIServer(('0.0.0.0', 5000), app)
+    app.logger.info('Server started.')
+    http_server.serve_forever()
+    # app.run(host='0.0.0.0', port=5001)
+    

@@ -4,37 +4,40 @@
     <header>
         <nav></nav>
     </header>
-         <div class="hamburger"> </div>
+    <img class= "menu" src="/public/images/threelines.png">
         <h1 class="name"> Charlotte</h1>
-        <img class= "profile" src="ch.png">
-    <section class="container-fluid">
+        <img style ="margin-left:10px;"class= "profile" src="/public/images/ch.png">
 
 
 
-<div class="month">      
-        <ul>
+
+
+        <ul class="month">
           <li>
             August<br>
             <span style="font-size:18px">2017</span>
           </li>
         </ul>
-      </div>
+
       
       
-      <ul class="days">  
+
  
-            <div class="chart">
+
+           <div class="chart" style="position: relative; top: 80px; z-index: 3; background: transparent; margin-left:1px;">
                 </div>
-                
-        <li>1</li>
+
+
+      <div style="position: absolute; top: 150px; z-index: 1; ">
+
+          <ul class="days" style="margin-top:-45px; margin-left:5px; background: transparent; " >
+       <li>1</li>
         <li>2</li>
         <li>3</li>
         <li>4</li>
         <li>5</li>
         <li>6</li>
-        <li>7</li>
-    
- 
+           <li>7</li>
         <li>8</li>
         <li>9</li>
         <li>10</li>
@@ -67,91 +70,7 @@
     
       <script>
  
-chart("data.csv", "orange");
-var datearray = [];
-var colorrange = [];
-            
- 
-var margin = {top: 20, right: 40, bottom: 30, left: 30};
-var width = document.body.clientWidth - margin.left - margin.right;
-var height = 400 - margin.top - margin.bottom;
- 
-var tooltip = d3.select("body")
-    .append("div")
-    .attr("class", "remove")
-    .style("position", "absolute")
-    .style("z-index", "20")
-    .style("visibility", "hidden")
-    .style("top", "30px")
-    .style("left", "55px");
- 
-var x = d3.time.scale()
-    .range([0, width]);
- 
-var y = d3.scale.linear()
-    .range([height-10, 0]);
- 
-var z = d3.scale.ordinal()
-    .range(colorrange);
- 
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom")
-    .ticks(d3.time.weeks);
- 
-var yAxis = d3.svg.axis()
-    .scale(y);
- 
-var yAxisr = d3.svg.axis()
-    .scale(y);
- 
-var stack = d3.layout.stack()
-    .offset("silhouette")
-    .values(function(d) { return d.values; })
-    .x(function(d) { return d.date; })
-    .y(function(d) { return d.value; });
 
-
-
-var svg = d3.select(".chart").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
- 
-    var graph = d3.csv(csvpath, function(data) {
-  data.forEach(function(d) {
-    d.date = format.parse(d.date);
- 
-    d.value = +d.x;
- 
-    d.value = +d.y;
- 
-    d.value = +d.z;
-  });
- 
-  var layers = stack(nest.entries(data));
- 
-  x.domain(d3.extent(data, function(d) { return d.date; }));
-  y.domain([0, d3.max(data, function(d) { return d.y0 + d.y; })]);
- 
-  svg.selectAll(".layer")
-      .data(layers)
-    .enter().append("path")
-      .attr("class", "layer")
-      .attr("d", function(d) { return area(d.values); })
-      .style("fill", function(d, i) { return z(i); });
- 
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
- 
-  svg.append("g")
-      .attr("class", "y axis")
-      .attr("transform", "translate(" + width + ", 0)")
-      .call(yAxis.orient("right"));
- 
             </script>
             
         <footer>

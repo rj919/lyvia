@@ -56,7 +56,7 @@ def send_email(email_client, user_email, user_name):
 
 # define email kwargs
     html_kwargs = {
-        'base_url': 'http://localhost:5001',
+        'base_url': 'http://localhost:5000',
         'application_logo': 'https://lyvia.herokuapp.com/public/images/logos/lab-logo1.png',
         'application_name': 'Lyvia',
         'application_address': 'One Broadway, 5th Floor, Cambridge, MA 02142',

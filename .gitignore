@@ -55,6 +55,7 @@ nbproject
 .node_history
 __pycache__
 .~lock.*
+venv/
 
 #################   backup sync   #################
 desktop.ini

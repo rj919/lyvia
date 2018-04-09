@@ -27,7 +27,7 @@ for key, value in object_map.items():
     table_name = key.replace('-','_')
     sql_kwargs = {
         'table_name': table_name,
-        'database_url': postgres_url,
+        'database_url': 'sqlite:///../data/records.db',
         'record_schema': value
     }
     sql_tables[table_name] = sqlClient(**sql_kwargs)

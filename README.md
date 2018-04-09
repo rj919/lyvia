@@ -1,52 +1,30 @@
-# Pocket Lab
-_A Vital Service for a Brand New Project_
-**by [Collective Acuity](https://collectiveacuity.com)**
+# Lyvia
+_A Platform to Spot Sleep Disruptions in People Suffering from Alzheimers_
+**by Jeffrey H, Plamedi M and Richard J**
+
+Intro
+-----
+Lyvia is a platform installed in the bedroom of a parent or loved one diagnosed with Alzheimers. Lyvia listens to bedroom noise for anomalous behavior over a series of nights which might indicate a change in mental state. Significant changes trigger an alert to the caregiver and encourage them to check up on their loved one.  
+
+[Slide Deck](https://docs.google.com/presentation/d/1aZBg41oWQgx1GNhNuHsYLO1N7pYnZQ7GqTZiuwOe-wU/edit?usp=sharing)
+[Hackathon.IO](http://www.hackathon.io/lyvia)
 
 Benefits
 --------
-- Endless fascination
--
-
-Features
---------
-- Responds to input
--
-
-Requirements
-------------
-- Dependencies listed in Dockerfile
-- Credentials from third-party services
--
+- Private (data collected is analyzed on device)
+- Innocuous (set it and forget it)
+- Personalized (data model trained on individual)
 
 Components
 ----------
-- Alpine Edge (OS)
-- Python 3.5.2 (Environment)
--
-
-Dev Environment
----------------
-- Docker (Provisioning)
-- BitBucket (Version Control)
-- PyCharm (IDE)
-- Dropbox (Sync, Backup)
-- PocketLab (DevOps)
-
-Languages
----------
-- Python 3.5
-
-Collaboration Notes
--------------------
-The Git and Docker repos contain all the configuration information required for collaboration except access tokens. To synchronize access tokens across multiple devices, platforms and users without losing local control, you can use LastPass, an encrypted email platform such as ProtonMail or smoke signals. If you use any AWS services, use AWS IAM to assign user permissions and create keys for each collaborator individually.
-Collaborators are required to install all service dependencies on their local device if they wish to test code on their localhost. A collaborate should always **FORK** the repo from the main master and fetch changes from the upstream repo so reality is controlled by one admin responsible for approving all changes. New dependencies should be added to the Dockerfile, **NOT** to the repo files. Collaborators should test changes to Dockerfile locally before making a pull request to merge any new dependencies:
-
-```bash
-docker build -t test-image .
-```
-
-.gitignore and .dockerignore have already been installed with the standard exclusions. To prevent unintended file proliferation through version control & provisioning, add/edit .gitignore and .dockerignore to include all new:
-
-1. local environments folders
-2. localhost dependencies
-3. configuration files with credentials and local variables
+- Python
+- Javascript
+- Flask
+- D3
+- Heroku
+- TensorFlow
+- Keras
+- SciKit-Learn
+- Rasbian
+- Raspberry Pi
+- PyAudio

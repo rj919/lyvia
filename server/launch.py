@@ -121,7 +121,7 @@ def telemetry_route():
                                 user_name = user['name']
                                 break
                             send_email(email_client, user_email, user_name)
-                        call_on_close = alert_user
+                        # call_on_close = alert_user
 
         # compose response
         if call_on_close:

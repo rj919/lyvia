@@ -88,6 +88,7 @@ if __name__ == '__main__':
         'method': 'GET'
     }
 
+
 # construct email client
     with flask_app.test_request_context('/', **request_kwargs) as ctx:
         from server.init import email_client

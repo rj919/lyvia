@@ -5,11 +5,12 @@ _A Platform to Spot Sleep Disruptions in People Suffering from Alzheimers_
 ![Lyvia Logo](lyvia_logo.png)
 
 ## Introduction
-Lyvia is a platform installed in the bedroom of a parent or loved one diagnosed with Alzheimers. Lyvia listens to bedroom noise for anomalous behavior over a series of nights which might indicate a change in mental state. Significant changes trigger an alert to the caregiver and encourage them to check up on their loved one.  
+Lyvia is a platform installed in the bedroom of a parent or loved one diagnosed with Alzheimers made for the [Need for Speed Hackathon](http://www.hackathon.io/need-for). Lyvia listens to bedroom noise for anomalous behavior over a series of nights which might indicate a change in mental state. Significant changes trigger an alert to the caregiver and encourage them to check up on their loved one.  
 
 ## Project Materials
 [Slide Deck](https://docs.google.com/presentation/d/1aZBg41oWQgx1GNhNuHsYLO1N7pYnZQ7GqTZiuwOe-wU/edit?usp=sharing)  
 [GitHub Repo](https://github.com/rj919/lyvia)   
+[Hackathon Submission](http://www.hackathon.io/lyvia)
 
 ## Benefits
 - Private (data collected is analyzed on device)
